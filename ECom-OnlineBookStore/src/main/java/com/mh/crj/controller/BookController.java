@@ -114,6 +114,8 @@ public class BookController {
 				.body(new ResponseMessage(HttpURLConnection.HTTP_UNAVAILABLE, Constants.FAILURE, "Book service temporarily unavailable, please try again later."));
 	}
 	
+	
+	//In this i use circuit breaker 
 	@GetMapping("/getData")
 	@CircuitBreaker(name="showData",fallbackMethod ="fallBackgetData")
 	public String showData() throws Exception {
